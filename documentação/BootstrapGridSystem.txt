@@ -1,0 +1,120 @@
+## Bootstrap Grid Sytem Explicação/Anotação
+##### by/por: Arthur Bueno Steinbach
+
+
+## GUTTERS ou MEDIANIZES:
+
+-Gutters são o preenchimento entre suas colunas, usado para espaçar e alinhar o conteúdo de forma 
+responsiva no sistema de grade Bootstrap.
+
+
+####Estrutração dos Gutters:
+  <div class="container"> <!-- divisão pai -->
+    <div class="row"> <!-- agrupação das colunas -->
+      <div class="col-1"> <!-- Coluna 1 -->
+            Conteúdo da coluna 1
+        </div>
+        <div class="col-2"> <!-- Coluna 2 -->
+            Conteúdo da coluna 2
+        </div>
+    </div>
+
+##Como funcionam:
+
+-As "gutters" são os espaços entre o conteúdo das colunas, criados pelo preenchimento horizontal. 
+ Definimos o preenchimento à direita e à esquerda 
+ em cada coluna e usamos margens negativas para compensar isso no início e no final de cada linha, a fim de alinhar o conteúdo.
+
+-As "gutters" começam com 1,5rem (24px) de largura. Isso nos permite alinhar nossa grade com a escala de espaçadores de 
+ preenchimento e margem.
+
+-As "gutters" podem ser ajustadas responsivamente. Use classes de "gutters" específicas para diferentes pontos de interrupção 
+ para modificar as "gutters" horizontais, verticais e todas as "gutters".
+
+##GUTTERS Horizontais:
+
+-As classes .gx-* podem ser usadas para controlar as larguras das "gutters" horizontais. 
+ O elemento pai .container ou .container-fluid pode precisar ser ajustado se "gutters" maiores forem usadas,
+ a fim de evitar transbordamentos indesejados, utilizando uma utilidade de preenchimento correspondente.
+ Por exemplo, no exemplo a seguir, aumentamos o preenchimento com .px-4:
+
+------Input:
+
+      <div class="container px-4 text-center">
+        <div class="row gx-5">
+          <div class="col">
+          <div class="p-3">Custom column padding</div>
+          </div>
+          <div class="col">
+            <div class="p-3">Custom column padding</div>
+          </div>
+        </div>
+      </div>
+
+------Output:
+
+  --------------------------------------------------------------
+  |  ___________________________  ___________________________  |
+  |  |                         |  |                         |  |
+  |  |  Custom column padding  |  |  Custom column padding  |  |
+  |  |                         |  |                         |  |
+  |  ---------------------------  ---------------------------  |
+  --------------------------------------------------------------
+
+Uma solução alternativa é adicionar um contêiner em torno da .row com a classe .overflow-hidden (demosntração abaixo):
+
+------Input:
+ 
+
+      <div class="container overflow-hidden text-center">
+        <div class="row gx-5"><!--largura do gutter horizontal-->
+          <div class="col">
+          <div class="p-3">Custom column padding</div>
+          </div>
+          <div class="col">
+            <div class="p-3">Custom column padding</div>
+          </div>
+        </div>
+      </div>
+
+
+##GUTTERS Verticais:
+
+-As classes .gy-* podem ser usadas para controlar as larguras das "gutters" verticais dentro de uma linha
+ quando as colunas se deslocam para novas linhas. Assim como as "gutters" horizontais, as "gutters" verticais
+ podem causar algum transbordamento abaixo da .row no final de uma página. Se isso ocorrer, você pode adicionar 
+ um contêiner em torno da .row com a classe .overflow-hidden:
+
+------Input:
+
+      <div class="container overflow-hidden text-center">
+        <div class="row gy-5">
+          <div class="col-6">
+            <div class="p-3">Custom column padding</div>
+          </div>
+          <div class="col-6">
+            <div class="p-3">Custom column padding</div>
+          </div>
+          <div class="col-6">
+            <div class="p-3">Custom column padding</div>
+          </div>
+          <div class="col-6">
+            <div class="p-3">Custom column padding</div>
+          </div>
+        </div>
+      </div>
+
+------Output:
+
+  --------------------------------------------------------------
+  |  ___________________________  ___________________________  |
+  |  |                         |  |                         |  |
+  |  |  Custom column padding  |  |  Custom column padding  |  |
+  |  |                         |  |                         |  |
+  |  ---------------------------  ---------------------------  |
+  |  ___________________________  ___________________________  |
+  |  |                         |  |                         |  |
+  |  |  Custom column padding  |  |  Custom column padding  |  |
+  |  |                         |  |                         |  |
+  |  ---------------------------  ---------------------------  |
+  --------------------------------------------------------------
